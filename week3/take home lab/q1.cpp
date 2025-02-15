@@ -17,12 +17,12 @@ vector<string> split(const string &);
 
 int superDigit(string n, int k) {
     
-    int len = n.length();
-    
-    if(len==1){
+    //base case
+    if(n.length()==1){
         return stoi(n);
     }
     
+    //create long string
     string temp = n;
     if(k>1){
         for(int i = 1 ; i<k ; i++){
@@ -30,16 +30,18 @@ int superDigit(string n, int k) {
         }
     }
     
+    //calculate value
     int value = 0;
-    
     for(auto &ch:temp){
         int t = ch - '0';
         value += t;
     }
     
-    string n = to_string(value);
-    superDigit(value,1);
+    //recursion case
+    return superDigit(to_string(value),1);
 }
+
+
 
 int main()
 {
