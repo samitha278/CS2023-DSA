@@ -1,4 +1,4 @@
-//Selection sort algorithm
+//Selection Sort
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,22 +8,21 @@ void selectionSort(vector<int> &a , int n){
     
     
     
-    for(int j =0 ; j<n ; j++){
+    for(int j =0 ; j<n-1 ; j++){
         
-        int min = a[j];
         int pos = j;
         
         for(int i= j+1 ; i < n ; i++){  
                    
-            if(min>a[i]){
-                min = a[i];
+            if(a[pos]>a[i]){
                 pos = i;
             }
             
         }
         
-        swap(a[j],a[pos]);
-        
+        if(pos!=j){
+            swap(a[j],a[pos]);
+        }
     }  
     
     
