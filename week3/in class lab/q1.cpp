@@ -47,12 +47,8 @@ vector<int> mergeSort(vector<int> a , int n){
         return a;
     }
     
-    int temp = 0;
-    if(n%2==0){
-        temp = n/2;
-    }else{
-        temp = (n-1)/2;
-    }
+    int temp = n/2;
+    
     
     
     vector<int> l(a.begin(),a.begin()+temp);
