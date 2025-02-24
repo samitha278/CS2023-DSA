@@ -1,53 +1,33 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
 
-int powerSum(double x,double n){
+
+
+int powerCount(int n, int c){
     
-    double k = pow(x,1.0/n);
-    
-    int paths = 0;
-    
-    
-    int func(int bal,int pre ){
-        
-        if(bal == 0){
-            return 0;
-        }
-        if(pre==1){
-            return 1;
-        }
-        
-        return func()
-        
-           
-    }
+    if(n==0) return 1;
+    if(n<0) return 0;
     
     
+    int n_new = n - pow(c,2);
     
-    for(int i = k ; i > 0 ; i--){
-        
-        int bal = x - pow(i,n);
-        
-        int val = func(bal,i);
-        
-        if(val==0){
-            paths++;
-        }
-        
-    }
-   
-   
+    return powerCount(n_new,c+1);
+    
+    
     
 }
 
-int main()
-{
-    double x,n;
-    cin>>x>>n;
+
+int main(){
     
-    cout << powerSum(x,n);
+    int n;
+    cin>>n;
+
+    int val = powerCount(n,1);
+    
+    cout<<val;
 
     return 0;
+
 }
