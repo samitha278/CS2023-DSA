@@ -1,33 +1,28 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-
-
-
-int powerCount(int n, int c){
-    
-    if(n==0) return 1;
-    if(n<0) return 0;
-    
-    
-    int n_new = n - pow(c,2);
-    
-    return powerCount(n_new,c+1);
-    
-    
-    
+//recursive function
+int func(int x,int n, int c){
+    if (pow(c,n)<x){
+        return func(x,n,c+1)+func(x-pow(c,n),n,c+1);
+    }
+    else if(pow(c,n)==x){
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
-
-int main(){
-    
+int main() {
+    int x;
     int n;
-    cin>>n;
-
-    int val = powerCount(n,1);
+    int c=1;
+    int res;
+    cin>>x>>n;//input X and C vales
+    func(x,n,c);
+    res=func(x,n,c);
+    cout<<res;
     
-    cout<<val;
-
     return 0;
-
 }
